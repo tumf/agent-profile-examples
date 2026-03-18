@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-opencode --agent reviewer "$@"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+OPENCODE_CONFIG="$ROOT/opencode/opencode.jsonc" \
+  opencode --agent reviewer "$@"

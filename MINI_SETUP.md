@@ -44,37 +44,32 @@ Codex は `~/.codex/config.toml` を丸ごと上書きせず、まずはこの r
 ```bash
 mkdir -p ~/.codex
 cp ~/.codex/config.toml ~/.codex/config.toml.bak 2>/dev/null || true
-# その後、codex/config.toml を見ながら手動で必要部分だけ取り込む
+# その後、codex/config.toml を見ながら必要部分だけ取り込む
 ```
 
 ## 4. OpenCode
 
-OpenCode も `~/.config/opencode/opencode.jsonc` を丸ごと上書きしない。
-
-この repo の `opencode/opencode.jsonc` は **設定断片の見本**。既存の:
-
-- `model`
-- `provider`
-- `permission`
-- `instructions`
-- `mcp`
-
-と競合しやすいので、手動でマージする。
-
-安全なやり方:
+OpenCode は `OPENCODE_CONFIG` で切り替えられるので、**まずは global config を触らず** repo 同梱の config を使うのが安全。
 
 ```bash
-mkdir -p ~/.config/opencode
-cp ~/.config/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc.bak 2>/dev/null || true
-# その後、opencode/opencode.jsonc を見ながら必要部分だけ取り込む
+./opencode/bin/run-builder.sh ~/services/some-repo
+./opencode/bin/run-reviewer.sh ~/services/some-repo
+./opencode/bin/run-operator.sh ~/services/some-repo
 ```
+
+同等の生コマンド:
+
+```bash
+OPENCODE_CONFIG="$PWD/opencode/opencode.jsonc" opencode --agent builder ~/services/some-repo
+```
+
+global の `~/.config/opencode/opencode.jsonc` を使う場合でも、丸ごと上書きではなく手動マージを推奨。
 
 ## 5. 実行例
 
 ```bash
 ./codex/bin/run-builder.sh ~/services/some-repo
 ./claude/bin/run-reviewer.sh -p "review current diff"
-# OpenCode は agent / config を手動で取り込んだ後に使う
 ./opencode/bin/run-builder.sh ~/services/some-repo
 ```
 
