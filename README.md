@@ -8,11 +8,17 @@
 - `builder` / `reviewer` / `operator` のような役割を、**command × profile** 単位で管理する
 - 共通の役割定義と、CLIごとの差分を分離する
 
+## まず読むもの
+
+- `PROFILE_MATRIX.md` — どの command にどの profile を割り当てるか
+- `MINI_SETUP.md` — mini での最小導入手順
+
 ## 方針
 
 - **role spec が正本**
 - 各 CLI 用の設定ファイルは role spec から派生させる
 - 実際の設定面は各 CLI に合わせる
+- 1つの profile に builder/reviewer/operator の責務を混ぜない
 
 ## CLI ごとの違い
 
