@@ -15,6 +15,10 @@
 - MCP は `claude/mcp/*.json`
 - 起動例は `claude/bin/*.sh`
 
+## 重要
+
+Claude はこの repo のサンプルを **グローバル設定へコピーせず**、`--settings` / `--system-prompt` / `--mcp-config` で参照する使い方を優先する。
+
 ## 例
 
 ```bash
