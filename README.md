@@ -58,16 +58,15 @@
 主な設定入口:
 
 - `~/.config/opencode/opencode.jsonc`
-- `opencode agent create`
+- `OPENCODE_CONFIG`
 - `opencode mcp ...`
-- `--agent`, `--prompt`, `--model`
+- `--prompt`, `--model`
 
 この repo では以下を例示:
 
-- `opencode/opencode.jsonc`
+- `opencode/configs/*.jsonc`
 - `opencode/prompts/*.md`
 - `opencode/bin/*.sh`
-- `opencode/agents/*.md`
 
 ## 収録 profile
 
@@ -107,3 +106,4 @@ opencode/
 - 危険操作、外部送信、deploy などは別途承認境界を設ける前提です。
 - MCP サーバ名や command は例示です。実際の環境に合わせて書き換えてください。
 - `~/.codex/config.toml` や `~/.config/opencode/opencode.jsonc` などの**既存グローバル設定を丸ごと上書きしない**でください。まず backup を取り、必要部分だけマージしてください。
+ジしてください。

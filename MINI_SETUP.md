@@ -49,7 +49,7 @@ cp ~/.codex/config.toml ~/.codex/config.toml.bak 2>/dev/null || true
 
 ## 4. OpenCode
 
-OpenCode は `OPENCODE_CONFIG` で切り替えられるので、**まずは global config を触らず** repo 同梱の config を使うのが安全。
+OpenCode は `OPENCODE_CONFIG` で切り替えられるので、**まずは global config を触らず** profile ごとの config を使うのが安全。
 
 ```bash
 ./opencode/bin/run-builder.sh ~/services/some-repo
@@ -60,7 +60,7 @@ OpenCode は `OPENCODE_CONFIG` で切り替えられるので、**まずは glob
 同等の生コマンド:
 
 ```bash
-OPENCODE_CONFIG="$PWD/opencode/opencode.jsonc" opencode --agent builder ~/services/some-repo
+OPENCODE_CONFIG="$PWD/opencode/configs/builder.jsonc" opencode ~/services/some-repo
 ```
 
 global の `~/.config/opencode/opencode.jsonc` を使う場合でも、丸ごと上書きではなく手動マージを推奨。
